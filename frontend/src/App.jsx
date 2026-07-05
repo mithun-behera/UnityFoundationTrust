@@ -1,5 +1,6 @@
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -8,13 +9,7 @@ function App() {
 
       <main className="flex-grow-1">
         <Navbar />
-
-        <div className="p-4">
-          <h1>Dashboard</h1>
-          <p className="text-secondary">
-            Welcome to Unity Foundation Trust.
-          </p>
-        </div>
+        <Dashboard />
       </main>
     </div>
   );
