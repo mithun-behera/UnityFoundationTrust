@@ -4,7 +4,7 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div className="d-flex min-vh-100 bg-dark text-white">
+    <div className="d-flex min-vh-100 bg-dark text-white w-100">
       <Sidebar />
 
       <main className="flex-grow-1">
