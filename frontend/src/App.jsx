@@ -1,12 +1,16 @@
+import Sidebar from "./components/Sidebar";
+
 function App() {
   return (
-    <div className="container mt-5">
-      <h1 className="text-primary">Unity Foundation Trust</h1>
-      <p className="lead">Serving Humanity Through Unity</p>
+    <div className="d-flex min-vh-100 bg-dark text-white">
+      <Sidebar />
 
-      <button className="btn btn-primary">
-        Bootstrap Working
-      </button>
+      <main className="flex-grow-1 p-4">
+        <h1>Dashboard</h1>
+        <p className="text-secondary">
+          Welcome to Unity Foundation Trust.
+        </p>
+      </main>
     </div>
   );
 }
