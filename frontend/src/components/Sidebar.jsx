@@ -11,10 +11,20 @@ import {
   FaHeart,
 } from "react-icons/fa";
 
-function Sidebar() {
+function Sidebar({activePage, setActivePage}) {
+       const menuItems = [
+        {name: "DashBoard",icon: <FaHome/>},
+        {name:"Donors",icon:<FaUsers/>},
+        {name:"Beneficiaries",icon:<FaHandHoldingHeart/>},
+        {name:"Donations",icon:<FaDonate/>},
+        {name: "Capaigns",icon:<FaBullhorn/>},
+        {name: "Volunteers", icon:<FaUserFriends/>},
+        {name:"Reports",icon:<FaChartBar/>},
+        {name:"Settings",icon:<FaCog/>},
+       ];
   return (
     <aside
-      className="bg-dark text-white p-3 d-flex flex-column vh-100"
+      className="bg-dark text-white p-3 d-flex flex-column vh-100 border-end border-secondary"
       style={{ width: "260px" }}
     >
       <div className="d-flex align-items-start gap-2 mb-4">
@@ -29,45 +39,12 @@ function Sidebar() {
       </div>
 
       <div className="nav flex-column gap-2">
-        <button className="btn btn-primary text-start">
-          <FaHome className="me-2" />
-          Dashboard
-        </button>
-
-        <button className="btn btn-dark text-start">
-          <FaUsers className="me-2" />
-          Donors
-        </button>
-
-        <button className="btn btn-dark text-start">
-          <FaHandHoldingHeart className="me-2" />
-          Beneficiaries
-        </button>
-
-        <button className="btn btn-dark text-start">
-          <FaDonate className="me-2" />
-          Donations
-        </button>
-
-        <button className="btn btn-dark text-start">
-          <FaBullhorn className="me-2" />
-          Campaigns
-        </button>
-
-        <button className="btn btn-dark text-start">
-          <FaUserFriends className="me-2" />
-          Volunteers
-        </button>
-
-        <button className="btn btn-dark text-start">
-          <FaChartBar className="me-2" />
-          Reports
-        </button>
-
-        <button className="btn btn-dark text-start">
-          <FaCog className="me-2" />
-          Settings
-        </button>
+           {menuItems.map((item) =>(
+            <button key={item.name} onClick={() => setActivePage(item.name)} className={activePage === item.name? "btn btn-primary text-start" : "btn btn-dark txt-start"}>
+              <span className="me-2">{item.icon}</span> 
+              {item.name}
+            </button>
+           ))}
       </div>
 
       <button className="btn btn-outline-danger text-start mt-auto">
