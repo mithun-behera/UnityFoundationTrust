@@ -8,7 +8,7 @@ import Donations from "./pages/compaigns";
 import Volunteers from "./pages/Volunteers";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
-
+import Campaigns from "./pages/compaigns";
 function App() {
   const [activePage, setActivePage] = useState("Dashboard");
   function showPage(){
