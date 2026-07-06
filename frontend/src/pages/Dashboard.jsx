@@ -1,8 +1,38 @@
-function Dashboard() {
+import{ Row, Col } from "react-bootstrap";
+import {
+  FaUsers,
+  FaDonate,
+  FaHandHoldingHeart,
+  FaBullhorn,
+} from "react-icons/fa";
+
+import DashboardCard from "../components/DashboardCard";
+
+function Dashboard(){
   return (
     <div className="p-4">
-      <h1 className="text-white">Dashboard Working</h1>
-      <p className="text-secondary">Unity Foundation Trust dashboard page.</p>
+        <h1 className="mb-1">Dashboard</h1>
+
+        <p className="text-seconadary mb-4">Welcome to Unity Foundation Trust</p>
+
+        <Row className="g-3">
+           <Col lg={3} md={6}>
+             <DashboardCard title="Total Donars" value="748" icon={<FaUsers/>}color="primary">
+             </DashboardCard>
+           </Col>
+            <Col lg={3} md={6}>
+              <DashboardCard title="Total Donations" value="₹ 11,20,00" icon={<FaDonate/>} color="success">
+
+              </DashboardCard>
+            </Col>
+           <Col lg={3} md={6}>
+             <DashboardCard title="Beneficiaries Helped " value="1,098" icon={<FaHandHoldingHeart/>} color="danger"/>
+           </Col>
+
+           <Col lg={3} md={6}>
+             <DashboardCard title="Active Campaigns" value="9" icon={<FaBullhorn/>} color="warning"/>
+           </Col>
+        </Row>
     </div>
   );
 }
