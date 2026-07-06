@@ -17,7 +17,7 @@ function Sidebar({activePage, setActivePage}) {
         {name:"Donors",icon:<FaUsers/>},
         {name:"Beneficiaries",icon:<FaHandHoldingHeart/>},
         {name:"Donations",icon:<FaDonate/>},
-        {name: "Capaigns",icon:<FaBullhorn/>},
+        {name: "Campaigns",icon:<FaBullhorn/>},
         {name: "Volunteers", icon:<FaUserFriends/>},
         {name:"Reports",icon:<FaChartBar/>},
         {name:"Settings",icon:<FaCog/>},

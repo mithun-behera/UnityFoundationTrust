@@ -14,7 +14,7 @@ function App() {
   function showPage(){
     if(activePage === "Dashboard") return <Dashboard/>;
     if(activePage === "Donors") return <Donors/>;
-    if(activePage === "Compaingns") return <Campaigns/>;
+    if(activePage === "Campaigns") return <Campaigns/>;
     if(activePage === "Volunteers") return <Volunteers/>;
     if(activePage === "Reports") return <Reports />;
     if(activePage === "Settings") return <Settings/>;
