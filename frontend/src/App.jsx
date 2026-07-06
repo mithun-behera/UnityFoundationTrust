@@ -32,7 +32,7 @@ function App() {
       <main className="flex-grow-1">
         <Navbar />
         {showPage()}
-      </main>
+      </main> 
     </div>
   );
 }

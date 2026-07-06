@@ -13,7 +13,7 @@ import {
 
 function Sidebar({activePage, setActivePage}) {
        const menuItems = [
-        {name: "DashBoard",icon: <FaHome/>},
+        {name: "Dashboard",icon: <FaHome/>},
         {name:"Donors",icon:<FaUsers/>},
         {name:"Beneficiaries",icon:<FaHandHoldingHeart/>},
         {name:"Donations",icon:<FaDonate/>},
