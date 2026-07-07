@@ -15,10 +15,14 @@ function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
   function showPage() {
-    if (activePage === "Dashboard") return <Dashboard />;
+    if(activePage === "Dashboard") {
+      return <Dashboard setActivePage ={setActivePage}/>
+    }
+    // if (activePage === "Dashboard") return <Dashboard />;
     if (activePage === "Donors") return <Donors />;
     if (activePage === "Beneficiaries") return <Beneficiaries />;
     if (activePage === "Donations") return <Donations />;
+    if(activePage === "Campaigns")
     if (activePage === "Campaigns") return <Campaigns />;
     if (activePage === "Volunteers") return <Volunteers />;
     if (activePage === "Reports") return <Reports />;

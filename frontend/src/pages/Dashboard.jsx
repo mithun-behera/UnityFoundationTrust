@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import DashboardCard from "../components/DashboardCard";
 
-function Dashboard() {
+function Dashboard({setActivePage}) {
   return (
     <div className="p-4">
       <h1 className="mb-1">Dashboard</h1>
@@ -57,7 +57,14 @@ function Dashboard() {
         <Col lg={8}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
-              <Card.Title className="mb-4">Recent Donations</Card.Title>
+             <div className="d-flex justify-content-between align-items-center mb-4">
+                  <Card.Title className="mb-0">Recent Donations</Card.Title>
+
+                  <button className="btn btn-outline-primary btn-sm" onClick={()=>setActivePage("Donations")}>
+                     View All
+                  </button>
+             </div>
+              {/* <Card.Title className="mb-4">Recent Donations</Card.Title> */}
 
               <Table responsive hover variant="dark" className="mb-0">
                 <thead>
@@ -107,7 +114,13 @@ function Dashboard() {
         <Col lg={4}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
-              <Card.Title className="mb-4">Active Campaigns</Card.Title>
+              <div className="d-flex justify-content-between align-items-center mb-4">
+                  <Card.Title className="mb-0" >Active Campigns</Card.Title>
+                  <button className="btn btn-outline-success btn-sm">
+                    View All
+                  </button>
+              </div>
+              {/* <Card.Title className="mb-4">Active Campaigns</Card.Title> */}
 
               <div className="mb-4">
                 <div className="d-flex justify-content-between mb-2">
