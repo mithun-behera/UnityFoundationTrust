@@ -41,6 +41,7 @@ function Donations() {
     });
     const [searchText, setSearchText] = useState("");
     const [statusFilter, setStatusFilter] = useState("All");
+    const [editingId, setEditingId] = useState(null);
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -58,18 +59,33 @@ function Donations() {
             alert("Please fill all fields");
             return;
         }
-
-        const newDonation = {
-            id: `DON-${100 + donations.length + 1}`,
-            donorName: formData.donorName,
-            type: formData.type,
-            amount: `₹ ${formData.amount}`,
-            date: formData.date,
-            status: formData.status,
-        };
-
-        setDonations([...donations, newDonation]);
-
+        if (editingId) {
+            const updatedDonations = donations.map((donation) =>
+                donation.id === editingId
+                    ? {
+                        ...donation,
+                        donorName: formData.donorName,
+                        type: formData.type,
+                        amount: `₹ ${formData.amount}`,
+                        date: formData.date,
+                        status: formData.status,
+                    }
+                    : donation
+            );
+            setDonations(updatedDonations);
+            setEditingId(null);
+        }
+        else {
+            const newDonation = {
+                id: `DON-${100 + donations.length + 1}`,
+                donorName: formData.donorName,
+                type: formData.type,
+                amount: `₹ ${formData.amount}`,
+                date: formData.date,
+                status: formData.status,
+            };
+            setDonations([...donations, newDonation]);
+        }
         setFormData({
             donorName: "",
             type: "",
@@ -82,10 +98,15 @@ function Donations() {
     }
 
     function handleDeleteDonation(id) {
-        const updatedDonations = donations.filter(
-            (donation) => donation.id !== id
+        const isConfirmed = window.confirm(
+            "Are you sure you want to delete this donation ?"
         );
-        setDonations(updatedDonations);
+        if (isConfirmed) {
+            const updatedDonations = donations.filter(
+                (donation) => donation.id !== id
+            );
+            setDonations(updatedDonations);
+        }
     }
     const filteredDonations = donations.filter((donation) => {
         const nameMatches = donation.donorName
@@ -96,7 +117,16 @@ function Donations() {
 
         return nameMatches && statusMatches;
     });
-
+    function handleEditDonation(donation) {
+        setFormData({
+            donorName: donation.donorName,
+            type: donation.type,
+            amount: donation.amount.replace("₹ ", "").replaceAll(",", ""),
+            date: donation.status,
+        });
+        setEditingId(donation.id);
+        setShowModal(true);
+    }
     return (
         <div className="p-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
@@ -159,11 +189,14 @@ function Donations() {
                                             {donation.status}
                                         </Badge></td>
                                     <td>
-                                        <Button variant="outline-primary" size="sm" className="me-2">
+                                        <Button variant="outline-primary"
+                                            size="sm" className="me-2"
+                                            onClick={() => handleEditDonation(donation)}>
                                             <FaEdit />
                                         </Button>
 
-                                        <Button variant="outline-danger" size="sm" onClick={() => handleDeleteDonation(donation.id)}>
+                                        <Button variant="outline-danger"
+                                         size="sm" onClick={() => handleDeleteDonation(donation.id)}>
                                             <FaTrash />
                                         </Button>
                                     </td>
@@ -236,7 +269,7 @@ function Donations() {
             </Card>
             <Modal show={showModal} onHide={() => setShowModal(false)} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add New Donation</Modal.Title>
+                    <Modal.Title>{editingId ? "Edit Donation" : "Add New Donation"}</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -287,12 +320,16 @@ function Donations() {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShowModal(false)}>
+                    <Button variant="secondary"
+                        onClick={() => {
+                            setShowModal(false);
+                            setEditingId(null);
+                        }}>
                         Cancel
                     </Button>
 
                     <Button variant="primary" onClick={handleSaveDonation}>
-                        Save Donation
+                        {editingId ? "Update Donation" : "Save Donation"}
                     </Button>
                 </Modal.Footer>
             </Modal>
