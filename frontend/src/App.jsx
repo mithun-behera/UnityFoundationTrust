@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 
@@ -11,32 +12,73 @@ import Volunteers from "./pages/Volunteers";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 
+import PublicNavbar from "./public-components/PublicNavbar";
+
+import Home from "./public-pages/Home";
+import About from "./public-pages/About";
+import OurWork from "./public-pages/OurWork";
+import PublicCampaigns from "./public-pages/PublicCampaigns";
+import BecomeMember from "./public-pages/BecomeMember";
+import Contact from "./public-pages/Contact";
+import Login from "./public-pages/Login";
+
 function App() {
+  const [websiteMode, setWebsiteMode] = useState("public");
+  const [publicPage, setPublicPage] = useState("Home");
   const [activePage, setActivePage] = useState("Dashboard");
 
-  function showPage() {
-    if(activePage === "Dashboard") {
-      return <Dashboard setActivePage ={setActivePage}/>
+  function showPublicPage() {
+    if (publicPage === "Home") return <Home />;
+    if (publicPage === "About") return <About />;
+    if (publicPage === "OurWork") return <OurWork />;
+    if (publicPage === "Campaigns") return <PublicCampaigns />;
+    if (publicPage === "BecomeMember") return <BecomeMember />;
+    if (publicPage === "Contact") return <Contact />;
+
+    if (publicPage === "Login") {
+      return (
+        <Login
+          openAdminDashboard={() => setWebsiteMode("admin")}
+          goToMemberPage={() => setPublicPage("BecomeMember")}
+        />
+      );
     }
-    // if (activePage === "Dashboard") return <Dashboard />;
+  }
+
+  function showAdminPage() {
+    if (activePage === "Dashboard") {
+      return <Dashboard setActivePage={setActivePage} />;
+    }
+
     if (activePage === "Donors") return <Donors />;
     if (activePage === "Beneficiaries") return <Beneficiaries />;
     if (activePage === "Donations") return <Donations />;
-    if(activePage === "Campaigns")
     if (activePage === "Campaigns") return <Campaigns />;
     if (activePage === "Volunteers") return <Volunteers />;
     if (activePage === "Reports") return <Reports />;
     if (activePage === "Settings") return <Settings />;
   }
 
-  return (
-    <div className="d-flex min-vh-100 bg-dark text-white w-100">
-      <Sidebar activePage={activePage} setActivePage={setActivePage} />
+  if (websiteMode === "admin") {
+    return (
+      <div className="d-flex min-vh-100 bg-dark text-white w-100">
+        <Sidebar
+          activePage={activePage}
+          setActivePage={setActivePage}
+        />
 
-      <main className="flex-grow-1">
-        <Navbar />
-        {showPage()}
-      </main> 
+        <main className="flex-grow-1">
+          <Navbar />
+          {showAdminPage()}
+        </main>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-vh-100 bg-light">
+      <PublicNavbar setPublicPage={setPublicPage} />
+      {showPublicPage()}
     </div>
   );
 }
