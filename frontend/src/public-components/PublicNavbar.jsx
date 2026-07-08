@@ -51,7 +51,7 @@ function PublicNavbar({ setPublicPage }) {
               variant="primary"
               size="sm"
               className="ms-lg-2 mt-2 mt-lg-0"
-              onClick={() => setPublicPage("BecomeMember")}
+              onClick={() => setPublicPage("User")}
             >
               Become a Member
             </Button>

@@ -18,7 +18,7 @@ import Home from "./public-pages/Home";
 import About from "./public-pages/About";
 import OurWork from "./public-pages/OurWork";
 import PublicCampaigns from "./public-pages/PublicCampaigns";
-import BecomeMember from "./public-pages/BecomeMember";
+import User from "./public-pages/User";
 import Contact from "./public-pages/Contact";
 import Login from "./public-pages/Login";
 
@@ -32,14 +32,14 @@ function App() {
     if (publicPage === "About") return <About />;
     if (publicPage === "OurWork") return <OurWork />;
     if (publicPage === "Campaigns") return <PublicCampaigns />;
-    if (publicPage === "BecomeMember") return <BecomeMember />;
+    if (publicPage === "User") return <User />;
     if (publicPage === "Contact") return <Contact />;
 
     if (publicPage === "Login") {
       return (
         <Login
           openAdminDashboard={() => setWebsiteMode("admin")}
-          goToMemberPage={() => setPublicPage("BecomeMember")}
+          goToMemberPage={() => setPublicPage("User")}
         />
       );
     }

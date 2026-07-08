@@ -1,4 +1,4 @@
-function PublicCampaigns() {
+function User() {
   return (
     <div className="p-5">
       <h1>Become a Member</h1>
@@ -7,4 +7,4 @@ function PublicCampaigns() {
   );
 }
 
-export default PublicCampaigns;
+export default User;
