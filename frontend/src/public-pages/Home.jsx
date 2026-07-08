@@ -6,7 +6,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-function Home() {
+function Home({setPublicPage}) {
   return (
     <>
       {/* Hero section */}
@@ -27,11 +27,16 @@ function Home() {
                 medical care, and social welfare programs.
               </p>
 
-              <Button variant="primary" size="lg" className="me-3">
+              <Button variant="primary" size="lg" 
+                 onClick={() =>setPublicPage("User")}
+              className="me-3">
                 Become a Member <FaArrowRight className="ms-2" />
               </Button>
 
-              <Button variant="outline-light" size="lg">
+              <Button variant="outline-light" size="lg"
+                 className="ms-2"
+                 onClick={()=>setPublicPage("OurWork")}
+              >
                 View Our Work
               </Button>
             </Col>

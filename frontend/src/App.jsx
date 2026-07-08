@@ -28,7 +28,9 @@ function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
   function showPublicPage() {
-    if (publicPage === "Home") return <Home />;
+   if (publicPage === "Home") {
+  return <Home setPublicPage={setPublicPage} />;
+}
     if (publicPage === "About") return <About />;
     if (publicPage === "OurWork") return <OurWork />;
     if (publicPage === "Campaigns") return <PublicCampaigns />;
