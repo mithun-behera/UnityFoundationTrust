@@ -21,6 +21,7 @@ import PublicCampaigns from "./public-pages/PublicCampaigns";
 import User from "./public-pages/User";
 import Contact from "./public-pages/Contact";
 import Login from "./public-pages/Login";
+import PublicFooter from "./public-pages/PublicFooter";
 
 function App() {
   const [websiteMode, setWebsiteMode] = useState("public");
@@ -101,10 +102,12 @@ function App() {
   }
 
   return (
-    <div className="min-vh-100 bg-light">
+    <div className="min-vh-100 bg-light d-flex flex-column">
       <PublicNavbar setPublicPage={setPublicPage} />
-
-      {showPublicPage()}
+        <main className="flex-grow-1">
+              {showPublicPage()}
+        </main>
+        <PublicFooter setPublicPage={setPublicPage}/>
     </div>
   );
 }

@@ -1,80 +1,69 @@
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Card, ProgressBar } from "react-bootstrap";
 import {
   FaHeart,
-  FaGraduationCap,
+  FaUsers,
   FaHandHoldingHeart,
+  FaBullhorn,
   FaArrowRight,
 } from "react-icons/fa";
 
-function Home({setPublicPage}) {
+function Home({ setPublicPage }) {
   return (
     <>
-      {/* Hero section */}
+      {/* Hero Section */}
       <section className="bg-dark text-white py-5">
-        <Container className="py-5">
-          <Row className="align-items-center g-4">
-            <Col lg={7}>
+        <Container>
+          <Row className="align-items-center g-4 py-md-4">
+            <Col xs={12} lg={7}>
               <p className="text-primary fw-bold mb-2">
-                UNITY FOUNDATION TRUST
+                SERVING HUMANITY THROUGH UNITY
               </p>
 
-              <h1 className="display-4 fw-bold">
-                Together We Can Build a Better Tomorrow
+              <h1 className="display-5 fw-bold mb-3">
+                Together We Can Create a Better Tomorrow
               </h1>
 
-              <p className="lead text-secondary mt-3">
-                We support families and communities through food, education,
-                medical care, and social welfare programs.
+              <p className="lead text-secondary mb-4">
+                Unity Foundation Trust supports families through food,
+                education, medical care, and community development programs.
               </p>
 
-              <Button variant="primary" size="lg" 
-                 onClick={() =>setPublicPage("User")}
-              className="me-3">
-                Become a Member <FaArrowRight className="ms-2" />
-              </Button>
+              <div className="d-flex flex-column flex-sm-row gap-3">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => setPublicPage("Campaigns")}
+                >
+                  <FaHeart className="me-2" />
+                  Donate Now
+                </Button>
 
-              <Button variant="outline-light" size="lg"
-                 className="ms-2"
-                 onClick={()=>setPublicPage("OurWork")}
-              >
-                View Our Work
-              </Button>
+                <Button
+                  variant="outline-light"
+                  size="lg"
+                  onClick={() => setPublicPage("User")}
+                >
+                  Become a Member
+                  <FaArrowRight className="ms-2" />
+                </Button>
+              </div>
             </Col>
 
-            <Col lg={5}>
-              <Card className="border-0 shadow">
-                <Card.Body className="p-4 text-dark">
-                  <h4 className="fw-bold">Our Impact</h4>
+            <Col xs={12} lg={5}>
+              <Card
+                bg="secondary"
+                text="white"
+                className="border-0 shadow-sm"
+              >
+                <Card.Body className="p-4 p-md-5">
+                  <FaHandHoldingHeart className="display-3 text-warning mb-3" />
 
-                  <Row className="g-3 mt-2">
-                    <Col xs={6}>
-                      <div className="bg-light rounded p-3 text-center">
-                        <h3 className="text-primary mb-1">498+</h3>
-                        <small>Donors</small>
-                      </div>
-                    </Col>
+                  <h3 className="fw-bold">Every Contribution Matters</h3>
 
-                    <Col xs={6}>
-                      <div className="bg-light rounded p-3 text-center">
-                        <h3 className="text-success mb-1">1,098+</h3>
-                        <small>People Helped</small>
-                      </div>
-                    </Col>
-
-                    <Col xs={6}>
-                      <div className="bg-light rounded p-3 text-center">
-                        <h3 className="text-danger mb-1">63+</h3>
-                        <small>Volunteers</small>
-                      </div>
-                    </Col>
-
-                    <Col xs={6}>
-                      <div className="bg-light rounded p-3 text-center">
-                        <h3 className="text-warning mb-1">9</h3>
-                        <small>Campaigns</small>
-                      </div>
-                    </Col>
-                  </Row>
+                  <p className="mb-0 text-light">
+                    Your support helps us reach more people and build stronger
+                    communities.
+                  </p>
                 </Card.Body>
               </Card>
             </Col>
@@ -82,53 +71,174 @@ function Home({setPublicPage}) {
         </Container>
       </section>
 
-      {/* Services section */}
+      {/* Statistics Section */}
       <section className="py-5 bg-light">
         <Container>
-          <div className="text-center mb-5">
-            <h2 className="fw-bold">How We Help</h2>
-            <p className="text-secondary">
-              Our foundation works in important areas of community support.
-            </p>
-          </div>
-
-          <Row className="g-4">
-            <Col md={4}>
+          <Row className="g-3">
+            <Col xs={12} sm={6} lg={3}>
               <Card className="h-100 border-0 shadow-sm text-center">
-                <Card.Body className="p-4">
-                  <FaHeart className="text-danger fs-1 mb-3" />
-                  <h4>Food Support</h4>
-                  <p className="text-secondary mb-0">
-                    Providing food and essential supplies to families in need.
-                  </p>
+                <Card.Body className="py-4">
+                  <FaUsers className="fs-2 text-primary mb-2" />
+                  <h3 className="fw-bold mb-1">748+</h3>
+                  <p className="text-secondary mb-0">Donors</p>
                 </Card.Body>
               </Card>
             </Col>
 
-            <Col md={4}>
+            <Col xs={12} sm={6} lg={3}>
               <Card className="h-100 border-0 shadow-sm text-center">
-                <Card.Body className="p-4">
-                  <FaGraduationCap className="text-primary fs-1 mb-3" />
-                  <h4>Education Support</h4>
-                  <p className="text-secondary mb-0">
-                    Helping children continue their education with resources.
-                  </p>
+                <Card.Body className="py-4">
+                  <FaHandHoldingHeart className="fs-2 text-danger mb-2" />
+                  <h3 className="fw-bold mb-1">1,098+</h3>
+                  <p className="text-secondary mb-0">Lives Supported</p>
                 </Card.Body>
               </Card>
             </Col>
 
-            <Col md={4}>
+            <Col xs={12} sm={6} lg={3}>
               <Card className="h-100 border-0 shadow-sm text-center">
-                <Card.Body className="p-4">
-                  <FaHandHoldingHeart className="text-success fs-1 mb-3" />
-                  <h4>Medical Support</h4>
-                  <p className="text-secondary mb-0">
-                    Supporting medical camps and health care for communities.
-                  </p>
+                <Card.Body className="py-4">
+                  <FaBullhorn className="fs-2 text-warning mb-2" />
+                  <h3 className="fw-bold mb-1">9</h3>
+                  <p className="text-secondary mb-0">Active Campaigns</p>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col xs={12} sm={6} lg={3}>
+              <Card className="h-100 border-0 shadow-sm text-center">
+                <Card.Body className="py-4">
+                  <FaHeart className="fs-2 text-success mb-2" />
+                  <h3 className="fw-bold mb-1">₹ 11L+</h3>
+                  <p className="text-secondary mb-0">Support Raised</p>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
+        </Container>
+      </section>
+
+      {/* Featured Campaigns Section */}
+      <section className="py-5 bg-white">
+        <Container>
+          <div className="text-center mb-5">
+            <p className="text-primary fw-bold mb-2">MAKE A DIFFERENCE</p>
+
+            <h2 className="fw-bold mb-3">Featured Campaigns</h2>
+
+            <p className="text-secondary mb-0">
+              Support a campaign and help us create a meaningful change.
+            </p>
+          </div>
+
+          <Row className="g-4">
+            <Col xs={12} md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="p-4">
+                  <div className="d-flex justify-content-between align-items-center mb-3">
+                    <span className="badge bg-danger">Food Support</span>
+                    <FaBullhorn className="text-danger fs-4" />
+                  </div>
+
+                  <h4 className="fw-bold">Food for Children</h4>
+
+                  <p className="text-secondary">
+                    Help provide healthy meals to children and families in need.
+                  </p>
+
+                  <div className="d-flex justify-content-between small mb-2">
+                    <span>Raised: ₹ 65,000</span>
+                    <span>Target: ₹ 1,00,000</span>
+                  </div>
+
+                  <ProgressBar now={65} variant="danger" className="mb-3" />
+
+                  <Button
+                    variant="outline-danger"
+                    className="w-100"
+                    onClick={() => setPublicPage("Campaigns")}
+                  >
+                    Support Campaign
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col xs={12} md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="p-4">
+                  <div className="d-flex justify-content-between align-items-center mb-3">
+                    <span className="badge bg-primary">Education</span>
+                    <FaBullhorn className="text-primary fs-4" />
+                  </div>
+
+                  <h4 className="fw-bold">Education Support</h4>
+
+                  <p className="text-secondary">
+                    Help students get books, school supplies, and learning
+                    support.
+                  </p>
+
+                  <div className="d-flex justify-content-between small mb-2">
+                    <span>Raised: ₹ 1,20,000</span>
+                    <span>Target: ₹ 1,50,000</span>
+                  </div>
+
+                  <ProgressBar now={80} variant="primary" className="mb-3" />
+
+                  <Button
+                    variant="outline-primary"
+                    className="w-100"
+                    onClick={() => setPublicPage("Campaigns")}
+                  >
+                    Support Campaign
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col xs={12} md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="p-4">
+                  <div className="d-flex justify-content-between align-items-center mb-3">
+                    <span className="badge bg-success">Medical Help</span>
+                    <FaBullhorn className="text-success fs-4" />
+                  </div>
+
+                  <h4 className="fw-bold">Medical Help Drive</h4>
+
+                  <p className="text-secondary">
+                    Support urgent medical treatment and healthcare for families.
+                  </p>
+
+                  <div className="d-flex justify-content-between small mb-2">
+                    <span>Raised: ₹ 80,000</span>
+                    <span>Target: ₹ 80,000</span>
+                  </div>
+
+                  <ProgressBar now={100} variant="success" className="mb-3" />
+
+                  <Button
+                    variant="outline-success"
+                    className="w-100"
+                    onClick={() => setPublicPage("Campaigns")}
+                  >
+                    Support Campaign
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+
+          <div className="text-center mt-5">
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => setPublicPage("Campaigns")}
+            >
+              View All Campaigns
+            </Button>
+          </div>
         </Container>
       </section>
     </>
