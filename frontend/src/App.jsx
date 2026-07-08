@@ -28,16 +28,29 @@ function App() {
   const [activePage, setActivePage] = useState("Dashboard");
 
   function showPublicPage() {
-   if (publicPage === "Home") {
-  return <Home setPublicPage={setPublicPage} />;
-}
-    if (publicPage === "About") return <About />;
-   if (publicPage === "OurWork") {
-  return <OurWork setPublicPage={setPublicPage} />;
-}
-    if (publicPage === "Campaigns") return <PublicCampaigns />;
-    if (publicPage === "User") return <User />;
-    if (publicPage === "Contact") return <Contact />;
+    if (publicPage === "Home") {
+      return <Home setPublicPage={setPublicPage} />;
+    }
+
+    if (publicPage === "About") {
+      return <About />;
+    }
+
+    if (publicPage === "OurWork") {
+      return <OurWork setPublicPage={setPublicPage} />;
+    }
+
+    if (publicPage === "Campaigns") {
+      return <PublicCampaigns setPublicPage={setPublicPage} />;
+    }
+
+    if (publicPage === "User") {
+      return <User />;
+    }
+
+    if (publicPage === "Contact") {
+      return <Contact />;
+    }
 
     if (publicPage === "Login") {
       return (
@@ -47,6 +60,8 @@ function App() {
         />
       );
     }
+
+    return <Home setPublicPage={setPublicPage} />;
   }
 
   function showAdminPage() {
@@ -61,6 +76,8 @@ function App() {
     if (activePage === "Volunteers") return <Volunteers />;
     if (activePage === "Reports") return <Reports />;
     if (activePage === "Settings") return <Settings />;
+
+    return <Dashboard setActivePage={setActivePage} />;
   }
 
   if (websiteMode === "admin") {
@@ -72,7 +89,11 @@ function App() {
         />
 
         <main className="flex-grow-1">
-          <Navbar />
+          <Navbar
+            activePage={activePage}
+            setActivePage={setActivePage}
+          />
+
           {showAdminPage()}
         </main>
       </div>
@@ -82,6 +103,7 @@ function App() {
   return (
     <div className="min-vh-100 bg-light">
       <PublicNavbar setPublicPage={setPublicPage} />
+
       {showPublicPage()}
     </div>
   );

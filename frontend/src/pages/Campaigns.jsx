@@ -148,11 +148,7 @@ function Campaigns() {
     );
 
     if (isConfirmed) {
-      const updatedCampaigns = campaigns.filter(
-        (campaign) => campaign.id !== id
-      );
-
-      setCampaigns(updatedCampaigns);
+      setCampaigns(campaigns.filter((campaign) => campaign.id !== id));
     }
   }
 
@@ -179,8 +175,8 @@ function Campaigns() {
   });
 
   return (
-    <div className="p-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+    <div className="p-3 p-md-4">
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
         <div>
           <h1 className="mb-1">Campaigns</h1>
           <p className="text-secondary mb-0">
@@ -196,8 +192,8 @@ function Campaigns() {
 
       <Card bg="dark" text="white" className="border-secondary">
         <Card.Body>
-          <Row className="mb-4">
-            <Col md={5}>
+          <Row className="g-2 mb-4">
+            <Col xs={12} md={5}>
               <Form.Control
                 type="text"
                 placeholder="Search campaign name..."
@@ -206,7 +202,7 @@ function Campaigns() {
               />
             </Col>
 
-            <Col md={3} className="mt-2 mt-md-0">
+            <Col xs={12} md={3}>
               <Form.Select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
@@ -217,7 +213,7 @@ function Campaigns() {
               </Form.Select>
             </Col>
 
-            <Col md={2} className="mt-2 mt-md-0">
+            <Col xs={12} md={2}>
               <Button variant="outline-secondary" className="w-100">
                 <FaSearch className="me-2" />
                 Search
@@ -305,7 +301,7 @@ function Campaigns() {
         </Card.Body>
       </Card>
 
-      <Modal show={showModal} onHide={handleCancel} centered>
+      <Modal show={showModal} onHide={handleCancel} centered size="lg">
         <Modal.Header closeButton>
           <Modal.Title>
             {editingId ? "Edit Campaign" : "Add New Campaign"}
@@ -314,65 +310,77 @@ function Campaigns() {
 
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3">
-              <Form.Label>Campaign Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter campaign name"
-              />
-            </Form.Group>
+            <Row className="g-3">
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Campaign Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter campaign name"
+                  />
+                </Form.Group>
+              </Col>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Category</Form.Label>
-              <Form.Select
-                name="category"
-                value={formData.category}
-                onChange={handleChange}
-              >
-                <option value="">Select category</option>
-                <option value="Food">Food</option>
-                <option value="Education">Education</option>
-                <option value="Medical">Medical</option>
-                <option value="Clothes">Clothes</option>
-              </Form.Select>
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Category</Form.Label>
+                  <Form.Select
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select category</option>
+                    <option value="Food">Food</option>
+                    <option value="Education">Education</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Clothes">Clothes</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Target Amount</Form.Label>
-              <Form.Control
-                type="number"
-                name="target"
-                value={formData.target}
-                onChange={handleChange}
-                placeholder="Enter target amount"
-              />
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Target Amount</Form.Label>
+                  <Form.Control
+                    type="number"
+                    name="target"
+                    value={formData.target}
+                    onChange={handleChange}
+                    placeholder="Enter target amount"
+                  />
+                </Form.Group>
+              </Col>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Raised Amount</Form.Label>
-              <Form.Control
-                type="number"
-                name="raised"
-                value={formData.raised}
-                onChange={handleChange}
-                placeholder="Enter raised amount"
-              />
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Raised Amount</Form.Label>
+                  <Form.Control
+                    type="number"
+                    name="raised"
+                    value={formData.raised}
+                    onChange={handleChange}
+                    placeholder="Enter raised amount"
+                  />
+                </Form.Group>
+              </Col>
 
-            <Form.Group>
-              <Form.Label>Status</Form.Label>
-              <Form.Select
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
-              >
-                <option value="Active">Active</option>
-                <option value="Completed">Completed</option>
-              </Form.Select>
-            </Form.Group>
+              <Col xs={12}>
+                <Form.Group>
+                  <Form.Label>Status</Form.Label>
+                  <Form.Select
+                    name="status"
+                    value={formData.status}
+                    onChange={handleChange}
+                  >
+                    <option value="Active">Active</option>
+                    <option value="Completed">Completed</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+            </Row>
           </Form>
         </Modal.Body>
 

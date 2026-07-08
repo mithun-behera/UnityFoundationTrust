@@ -66,7 +66,7 @@ function Settings() {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-3 p-md-4">
       <div className="mb-4">
         <h1 className="mb-1">Settings</h1>
         <p className="text-secondary mb-0">
@@ -81,7 +81,7 @@ function Settings() {
       )}
 
       <Row className="g-4">
-        <Col lg={6}>
+        <Col xs={12} lg={6}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <Card.Title className="mb-4">
@@ -133,7 +133,7 @@ function Settings() {
           </Card>
         </Col>
 
-        <Col lg={6}>
+        <Col xs={12} lg={6}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <Card.Title className="mb-4">
@@ -175,8 +175,8 @@ function Settings() {
           </Card>
         </Col>
 
-        <Col lg={6}>
-          <Card bg="dark" text="white" className="border-secondary">
+        <Col xs={12} lg={6}>
+          <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <Card.Title className="mb-4">
                 <FaBell className="me-2 text-warning" />
@@ -215,16 +215,21 @@ function Settings() {
           </Card>
         </Col>
 
-        <Col lg={6}>
-          <Card bg="dark" text="white" className="border-secondary">
+        <Col xs={12} lg={6}>
+          <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body className="d-flex flex-column justify-content-center h-100">
               <h5>Save Changes</h5>
+
               <p className="text-secondary">
                 Save all changes made to foundation details, admin profile,
                 and notification preferences.
               </p>
 
-              <Button variant="primary" onClick={handleSaveSettings}>
+              <Button
+                variant="primary"
+                className="w-100 w-lg-auto"
+                onClick={handleSaveSettings}
+              >
                 <FaSave className="me-2" />
                 Save Settings
               </Button>

@@ -109,7 +109,6 @@ function Volunteers() {
       );
 
       setVolunteers(updatedVolunteers);
-      setEditingId(null);
     } else {
       const newVolunteer = {
         id: `VOL-${100 + volunteers.length + 1}`,
@@ -124,6 +123,7 @@ function Volunteers() {
       setVolunteers([...volunteers, newVolunteer]);
     }
 
+    setEditingId(null);
     resetForm();
     setShowModal(false);
   }
@@ -148,11 +148,9 @@ function Volunteers() {
     );
 
     if (isConfirmed) {
-      const updatedVolunteers = volunteers.filter(
-        (volunteer) => volunteer.id !== id
+      setVolunteers(
+        volunteers.filter((volunteer) => volunteer.id !== id)
       );
-
-      setVolunteers(updatedVolunteers);
     }
   }
 
@@ -174,8 +172,8 @@ function Volunteers() {
   });
 
   return (
-    <div className="p-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+    <div className="p-3 p-md-4">
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
         <div>
           <h1 className="mb-1">Volunteers</h1>
           <p className="text-secondary mb-0">
@@ -191,8 +189,8 @@ function Volunteers() {
 
       <Card bg="dark" text="white" className="border-secondary">
         <Card.Body>
-          <Row className="mb-4">
-            <Col md={5}>
+          <Row className="g-2 mb-4">
+            <Col xs={12} md={5}>
               <Form.Control
                 type="text"
                 placeholder="Search volunteer name..."
@@ -201,7 +199,7 @@ function Volunteers() {
               />
             </Col>
 
-            <Col md={3} className="mt-2 mt-md-0">
+            <Col xs={12} md={3}>
               <Form.Select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
@@ -212,7 +210,7 @@ function Volunteers() {
               </Form.Select>
             </Col>
 
-            <Col md={2} className="mt-2 mt-md-0">
+            <Col xs={12} md={2}>
               <Button variant="outline-secondary" className="w-100">
                 <FaSearch className="me-2" />
                 Search
@@ -287,7 +285,7 @@ function Volunteers() {
         </Card.Body>
       </Card>
 
-      <Modal show={showModal} onHide={handleCancel} centered>
+      <Modal show={showModal} onHide={handleCancel} centered size="lg">
         <Modal.Header closeButton>
           <Modal.Title>
             {editingId ? "Edit Volunteer" : "Add New Volunteer"}
@@ -296,77 +294,93 @@ function Volunteers() {
 
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3">
-              <Form.Label>Full Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter full name"
-              />
-            </Form.Group>
+            <Row className="g-3">
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Full Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter full name"
+                  />
+                </Form.Group>
+              </Col>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="Enter phone number"
-              />
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Phone Number</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter phone number"
+                  />
+                </Form.Group>
+              </Col>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter email address"
-              />
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Email Address</Form.Label>
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter email address"
+                  />
+                </Form.Group>
+              </Col>
 
-            <Form.Group className="mb-3">
-              <Form.Label>City</Form.Label>
-              <Form.Control
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                placeholder="Enter city name"
-              />
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    placeholder="Enter city name"
+                  />
+                </Form.Group>
+              </Col>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Volunteer Role</Form.Label>
-              <Form.Select
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-              >
-                <option value="">Select volunteer role</option>
-                <option value="Food Distribution">Food Distribution</option>
-                <option value="Teaching">Teaching</option>
-                <option value="Medical Camp">Medical Camp</option>
-                <option value="Fundraising">Fundraising</option>
-                <option value="Event Support">Event Support</option>
-              </Form.Select>
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Volunteer Role</Form.Label>
+                  <Form.Select
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select volunteer role</option>
+                    <option value="Food Distribution">
+                      Food Distribution
+                    </option>
+                    <option value="Teaching">Teaching</option>
+                    <option value="Medical Camp">Medical Camp</option>
+                    <option value="Fundraising">Fundraising</option>
+                    <option value="Event Support">Event Support</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
 
-            <Form.Group>
-              <Form.Label>Status</Form.Label>
-              <Form.Select
-                name="status"
-                value={formData.status}
-                onChange={handleChange}
-              >
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </Form.Select>
-            </Form.Group>
+              <Col xs={12} md={6}>
+                <Form.Group>
+                  <Form.Label>Status</Form.Label>
+                  <Form.Select
+                    name="status"
+                    value={formData.status}
+                    onChange={handleChange}
+                  >
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+            </Row>
           </Form>
         </Modal.Body>
 

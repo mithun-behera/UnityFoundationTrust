@@ -10,7 +10,7 @@ import {
 
 function Reports() {
   return (
-    <div className="p-4">
+    <div className="p-3 p-md-4">
       <div className="mb-4">
         <h1 className="mb-1">Reports</h1>
         <p className="text-secondary mb-0">
@@ -19,7 +19,7 @@ function Reports() {
       </div>
 
       <Row className="g-3 mb-4">
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <div className="text-primary fs-3 mb-2">
@@ -31,7 +31,7 @@ function Reports() {
           </Card>
         </Col>
 
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <div className="text-success fs-3 mb-2">
@@ -43,7 +43,7 @@ function Reports() {
           </Card>
         </Col>
 
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <div className="text-danger fs-3 mb-2">
@@ -55,7 +55,7 @@ function Reports() {
           </Card>
         </Col>
 
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <div className="text-warning fs-3 mb-2">
@@ -69,19 +69,29 @@ function Reports() {
       </Row>
 
       <Row className="g-4">
-        <Col lg={8}>
+        <Col xs={12} lg={8}>
           <Card bg="dark" text="white" className="border-secondary">
             <Card.Body>
-              <div className="d-flex justify-content-between align-items-center mb-3">
-                <Card.Title className="mb-0">Monthly Donation Report</Card.Title>
+              <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-3">
+                <Card.Title className="mb-0">
+                  Monthly Donation Report
+                </Card.Title>
 
-                <div>
-                  <Button variant="outline-danger" size="sm" className="me-2">
+                <div className="d-flex gap-2">
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    className="flex-fill"
+                  >
                     <FaFilePdf className="me-1" />
                     PDF
                   </Button>
 
-                  <Button variant="outline-success" size="sm">
+                  <Button
+                    variant="outline-success"
+                    size="sm"
+                    className="flex-fill"
+                  >
                     <FaFileExcel className="me-1" />
                     Excel
                   </Button>
@@ -142,10 +152,10 @@ function Reports() {
           </Card>
         </Col>
 
-        <Col lg={4}>
+        <Col xs={12} lg={4}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
-              <Card.Title>Quick Reports</Card.Title>
+              <Card.Title className="mb-3">Quick Reports</Card.Title>
 
               <Button variant="outline-primary" className="w-100 mb-3">
                 Donor Report
