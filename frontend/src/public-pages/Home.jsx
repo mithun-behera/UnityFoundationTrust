@@ -8,6 +8,7 @@ import {
   FaCheckCircle,
   FaHandsHelping,
   FaShieldAlt,
+  FaQuoteLeft,
 } from "react-icons/fa"; 3
 
 function Home({ setPublicPage }) {
@@ -324,6 +325,115 @@ function Home({ setPublicPage }) {
           </Row>
         </Container>
       </section>
+
+      {/* 5. Testimonials Section */}
+      <section className="py-5 bg-white">
+        <Container>
+          <div className="text-center mb-5">
+            <p className="text-primary fw-bold mb-2">VOICES OF SUPPORT</p>
+
+            <h2 className="fw-bold mb-3">What People Say About Us</h2>
+
+            <p className="text-secondary mb-0">
+              Every contribution and volunteer effort helps create a positive impact.
+            </p>
+          </div>
+
+          <Row className="g-4">
+            <Col xs={12} md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="p-4">
+                  <FaQuoteLeft className="text-primary fs-2 mb-3" />
+
+                  <p className="text-secondary">
+                    Unity Foundation Trust gave my family support when we needed it
+                    most. Their food support program made a real difference.
+                  </p>
+
+                  <hr />
+
+                  <h6 className="fw-bold mb-1">Suresh Kumar</h6>
+                  <small className="text-secondary">Community Member</small>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col xs={12} md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="p-4">
+                  <FaQuoteLeft className="text-success fs-2 mb-3" />
+
+                  <p className="text-secondary">
+                    Volunteering here has shown me how small actions can help many
+                    people. The team is supportive and focused on real impact.
+                  </p>
+
+                  <hr />
+
+                  <h6 className="fw-bold mb-1">Anjali Reddy</h6>
+                  <small className="text-secondary">Volunteer</small>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col xs={12} md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm">
+                <Card.Body className="p-4">
+                  <FaQuoteLeft className="text-danger fs-2 mb-3" />
+
+                  <p className="text-secondary">
+                    I am happy to support their education campaign. Their work gives
+                    students better opportunities to continue learning.
+                  </p>
+
+                  <hr />
+
+                  <h6 className="fw-bold mb-1">Ravi Sharma</h6>
+                  <small className="text-secondary">Donor</small>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      {/* 6. Call To Action Section */}
+      <section className="py-5 bg-primary text-white">
+        <Container>
+          <Row className="align-items-center g-4">
+            <Col xs={12} lg={8}>
+              <h2 className="fw-bold mb-2">
+                Ready to Make a Difference?
+              </h2>
+
+              <p className="mb-0 fs-5">
+                Join Unity Foundation Trust as a member, volunteer, or donor and
+                help us support more lives.
+              </p>
+            </Col>
+
+            <Col xs={12} lg={4}>
+              <div className="d-flex flex-column flex-sm-row gap-3 justify-content-lg-end">
+                <Button
+                  variant="light"
+                  size="lg"
+                  onClick={() => setPublicPage("User")}
+                >
+                  Become a Member
+                </Button>
+
+                <Button
+                  variant="outline-light"
+                  size="lg"
+                  onClick={() => setPublicPage("Campaigns")}
+                >
+                  Donate Now
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
     </>
   );
 }
