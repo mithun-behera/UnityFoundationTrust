@@ -5,7 +5,10 @@ import {
   FaHandHoldingHeart,
   FaBullhorn,
   FaArrowRight,
-} from "react-icons/fa";
+  FaCheckCircle,
+  FaHandsHelping,
+  FaShieldAlt,
+} from "react-icons/fa"; 3
 
 function Home({ setPublicPage }) {
   return (
@@ -239,6 +242,86 @@ function Home({ setPublicPage }) {
               View All Campaigns
             </Button>
           </div>
+        </Container>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-5 bg-light">
+        <Container>
+          <Row className="align-items-center g-4">
+            <Col xs={12} lg={6}>
+              <p className="text-primary fw-bold mb-2">WHY UNITY FOUNDATION</p>
+
+              <h2 className="fw-bold mb-3">
+                Small Actions Can Create Big Change
+              </h2>
+
+              <p className="text-secondary mb-4">
+                We work with donors, volunteers, and local communities to provide
+                meaningful support where it is needed most.
+              </p>
+
+              <div className="d-flex gap-3 mb-3">
+                <FaCheckCircle className="text-success fs-3 flex-shrink-0" />
+
+                <div>
+                  <h5 className="mb-1">Transparent Support</h5>
+                  <p className="text-secondary mb-0">
+                    We focus on using every contribution responsibly for community
+                    support programs.
+                  </p>
+                </div>
+              </div>
+
+              <div className="d-flex gap-3 mb-3">
+                <FaHandsHelping className="text-primary fs-3 flex-shrink-0" />
+
+                <div>
+                  <h5 className="mb-1">Community Driven</h5>
+                  <p className="text-secondary mb-0">
+                    Our volunteers and members work together to help families and
+                    communities.
+                  </p>
+                </div>
+              </div>
+
+              <div className="d-flex gap-3">
+                <FaShieldAlt className="text-warning fs-3 flex-shrink-0" />
+
+                <div>
+                  <h5 className="mb-1">Trusted Programs</h5>
+                  <p className="text-secondary mb-0">
+                    We support food, education, healthcare, and emergency assistance
+                    initiatives.
+                  </p>
+                </div>
+              </div>
+            </Col>
+
+            <Col xs={12} lg={6}>
+              <Card bg="dark" text="white" className="border-0 shadow-sm">
+                <Card.Body className="p-4 p-md-5">
+                  <FaHeart className="text-danger display-4 mb-3" />
+
+                  <h3 className="fw-bold">Join Our Mission</h3>
+
+                  <p className="text-light mb-4">
+                    Become a member and help us serve more people with compassion,
+                    dignity, and unity.
+                  </p>
+
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    onClick={() => setPublicPage("User")}
+                  >
+                    Become a Member
+                    <FaArrowRight className="ms-2" />
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
         </Container>
       </section>
     </>
