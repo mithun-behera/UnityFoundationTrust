@@ -32,7 +32,9 @@ function App() {
   return <Home setPublicPage={setPublicPage} />;
 }
     if (publicPage === "About") return <About />;
-    if (publicPage === "OurWork") return <OurWork />;
+   if (publicPage === "OurWork") {
+  return <OurWork setPublicPage={setPublicPage} />;
+}
     if (publicPage === "Campaigns") return <PublicCampaigns />;
     if (publicPage === "User") return <User />;
     if (publicPage === "Contact") return <Contact />;
