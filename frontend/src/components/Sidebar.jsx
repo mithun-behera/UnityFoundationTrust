@@ -11,20 +11,21 @@ import {
   FaHeart,
 } from "react-icons/fa";
 
-function Sidebar({activePage, setActivePage}) {
-       const menuItems = [
-        {name: "Dashboard",icon: <FaHome/>},
-        {name:"Donors",icon:<FaUsers/>},
-        {name:"Beneficiaries",icon:<FaHandHoldingHeart/>},
-        {name:"Donations",icon:<FaDonate/>},
-        {name: "Campaigns",icon:<FaBullhorn/>},
-        {name: "Volunteers", icon:<FaUserFriends/>},
-        {name:"Reports",icon:<FaChartBar/>},
-        {name:"Settings",icon:<FaCog/>},
-       ];
+function Sidebar({ activePage, setActivePage }) {
+  const menuItems = [
+    { name: "Dashboard", icon: <FaHome /> },
+    { name: "Donors", icon: <FaUsers /> },
+    { name: "Beneficiaries", icon: <FaHandHoldingHeart /> },
+    { name: "Donations", icon: <FaDonate /> },
+    { name: "Campaigns", icon: <FaBullhorn /> },
+    { name: "Volunteers", icon: <FaUserFriends /> },
+    { name: "Reports", icon: <FaChartBar /> },
+    { name: "Settings", icon: <FaCog /> },
+  ];
+
   return (
     <aside
-      className="bg-dark text-white p-3 d-flex flex-column vh-100 border-end border-secondary"
+      className="bg-dark text-white p-3 d-none d-lg-flex flex-column vh-100 border-end border-secondary"
       style={{ width: "260px" }}
     >
       <div className="d-flex align-items-start gap-2 mb-4">
@@ -39,12 +40,20 @@ function Sidebar({activePage, setActivePage}) {
       </div>
 
       <div className="nav flex-column gap-2">
-           {menuItems.map((item) =>(
-            <button key={item.name} onClick={() => setActivePage(item.name)} className={activePage === item.name? "btn btn-primary text-start" : "btn btn-dark txt-start"}>
-              <span className="me-2">{item.icon}</span> 
-              {item.name}
-            </button>
-           ))}
+        {menuItems.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => setActivePage(item.name)}
+            className={
+              activePage === item.name
+                ? "btn btn-primary text-start"
+                : "btn btn-dark text-start"
+            }
+          >
+            <span className="me-2">{item.icon}</span>
+            {item.name}
+          </button>
+        ))}
       </div>
 
       <button className="btn btn-outline-danger text-start mt-auto">

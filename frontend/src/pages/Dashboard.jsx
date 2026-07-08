@@ -7,16 +7,16 @@ import {
 } from "react-icons/fa";
 import DashboardCard from "../components/DashboardCard";
 
-function Dashboard({setActivePage}) {
+function Dashboard({ setActivePage }) {
   return (
-    <div className="p-4">
+    <div className="p-3 p-md-4">
       <h1 className="mb-1">Dashboard</h1>
       <p className="text-secondary mb-4">
         Welcome to Unity Foundation Trust
       </p>
 
       <Row className="g-3">
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <DashboardCard
             title="Total Donors"
             value="748"
@@ -25,7 +25,7 @@ function Dashboard({setActivePage}) {
           />
         </Col>
 
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <DashboardCard
             title="Total Donations"
             value="₹ 11,20,000"
@@ -34,7 +34,7 @@ function Dashboard({setActivePage}) {
           />
         </Col>
 
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <DashboardCard
             title="Beneficiaries Helped"
             value="1,098"
@@ -43,7 +43,7 @@ function Dashboard({setActivePage}) {
           />
         </Col>
 
-        <Col lg={3} md={6}>
+        <Col xs={12} md={6} lg={3}>
           <DashboardCard
             title="Active Campaigns"
             value="9"
@@ -54,16 +54,16 @@ function Dashboard({setActivePage}) {
       </Row>
 
       <Row className="mt-4 g-3">
-        <Col lg={8}>
+        <Col xs={12} lg={8}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
-             <div className="d-flex justify-content-between align-items-center mb-4">
-                  <Card.Title className="mb-0">Recent Donations</Card.Title>
+              <div className="d-flex justify-content-between align-items-center mb-4">
+                <Card.Title className="mb-0">Recent Donations</Card.Title>
 
-                  <button className="btn btn-outline-primary btn-sm" onClick={()=>setActivePage("Donations")}>
-                     View All
-                  </button>
-             </div>
+                <button className="btn btn-outline-primary btn-sm" onClick={() => setActivePage("Donations")}>
+                  View All
+                </button>
+              </div>
               {/* <Card.Title className="mb-4">Recent Donations</Card.Title> */}
 
               <Table responsive hover variant="dark" className="mb-0">
@@ -111,14 +111,17 @@ function Dashboard({setActivePage}) {
           </Card>
         </Col>
 
-        <Col lg={4}>
+        <Col xs={12} lg={4}>
           <Card bg="dark" text="white" className="border-secondary h-100">
             <Card.Body>
               <div className="d-flex justify-content-between align-items-center mb-4">
-                  <Card.Title className="mb-0" >Active Campigns</Card.Title>
-                  <button className="btn btn-outline-success btn-sm">
-                    View All
-                  </button>
+                <Card.Title className="mb-0" >Active Campigns</Card.Title>
+                <button
+                  className="btn btn-outline-success btn-sm"
+                  onClick={() => setActivePage("Campaigns")}
+                >
+                  View All
+                </button>
               </div>
               {/* <Card.Title className="mb-4">Active Campaigns</Card.Title> */}
 
