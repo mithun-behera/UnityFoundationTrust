@@ -22,6 +22,7 @@ import User from "./public-pages/User";
 import Contact from "./public-pages/Contact";
 import Login from "./public-pages/Login";
 import PublicFooter from "./public-pages/PublicFooter";
+import PublicDonation from "./public-pages/PublicDonation";
 
 function App() {
   const [websiteMode, setWebsiteMode] = useState("public");
@@ -52,7 +53,9 @@ function App() {
     if (publicPage === "Contact") {
       return <Contact />;
     }
-
+    if (publicPage === "Donation") {
+      return <PublicDonation setPublicPage={setPublicPage} />;
+    }
     if (publicPage === "Login") {
       return (
         <Login
@@ -104,10 +107,10 @@ function App() {
   return (
     <div className="min-vh-100 bg-light d-flex flex-column">
       <PublicNavbar setPublicPage={setPublicPage} />
-        <main className="flex-grow-1">
-              {showPublicPage()}
-        </main>
-        <PublicFooter setPublicPage={setPublicPage}/>
+      <main className="flex-grow-1">
+        {showPublicPage()}
+      </main>
+      <PublicFooter setPublicPage={setPublicPage} />
     </div>
   );
 }

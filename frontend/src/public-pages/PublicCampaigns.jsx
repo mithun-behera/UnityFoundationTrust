@@ -149,7 +149,7 @@ function PublicCampaigns({ setPublicPage }) {
                     <Button
                       variant={campaign.button}
                       className="w-100"
-                      onClick={() => setPublicPage("User")}
+                      onClick={() => setPublicPage("Donation")}
                     >
                       Donate Now
                       <FaArrowRight className="ms-2" />

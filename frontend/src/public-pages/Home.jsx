@@ -9,9 +9,14 @@ import {
   FaHandsHelping,
   FaShieldAlt,
   FaQuoteLeft,
-} from "react-icons/fa"; 3
+} from "react-icons/fa"; 
 
 function Home({ setPublicPage }) {
+   function goToPage(pageName){
+    setPublicPage(pageName);
+    window.scrollTo({top:0,behavior:"smooth"});
+   }
+
   return (
     <>
       {/* Hero Section */}
@@ -36,7 +41,7 @@ function Home({ setPublicPage }) {
                 <Button
                   variant="primary"
                   size="lg"
-                  onClick={() => setPublicPage("Campaigns")}
+                  onClick={() => goToPage("Campaigns")}
                 >
                   <FaHeart className="me-2" />
                   Donate Now
@@ -45,7 +50,7 @@ function Home({ setPublicPage }) {
                 <Button
                   variant="outline-light"
                   size="lg"
-                  onClick={() => setPublicPage("User")}
+                  onClick={() => goToPage("User")}
                 >
                   Become a Member
                   <FaArrowRight className="ms-2" />
